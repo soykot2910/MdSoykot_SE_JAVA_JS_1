@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./sideBar.module.css";
+import classes from "./SideBar.module.css";
 import { Columns } from "react-bootstrap-icons";
 
 import Accordion from "../Accordion/Accordion";
