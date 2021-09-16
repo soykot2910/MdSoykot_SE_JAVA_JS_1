@@ -62,23 +62,13 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 
-export const deleteProduct = (id) => async (dispatch, getState) => {
+export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({
       type: PRODUCT_DELETE_REQUEST,
     });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    await axios.delete(`/api/products/${id}`, config);
+    await axios.delete(`/api/products/${id}`);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -88,8 +78,6 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-    if (message === "Not authorized, token failed") {
-    }
     dispatch({
       type: PRODUCT_DELETE_FAIL,
       payload: message,

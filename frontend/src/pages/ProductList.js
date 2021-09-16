@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import TextTruncate from "react-text-truncate";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
@@ -18,7 +17,6 @@ const Productlist = ({ history }) => {
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-  console.log(products);
 
   useEffect(() => {
     dispatch(listProducts());
@@ -43,7 +41,7 @@ const Productlist = ({ history }) => {
         <td>{product.price}</td>
         <td>{product.category}</td>
         <td>
-          <Link to={`/admin/product/${product._id}/edit`}>
+          <Link to={`/product/${product._id}/edit`}>
             <Button variant="light" className="btn-sm">
               <PencilSquare />
             </Button>
@@ -67,10 +65,9 @@ const Productlist = ({ history }) => {
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure")) {
-      //
+      dispatch(deleteProduct(id));
     }
   };
-
   return (
     <div className="product py-5">
       <Container>

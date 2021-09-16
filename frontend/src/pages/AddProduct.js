@@ -26,7 +26,6 @@ export default function AddProductPage() {
     formData.append("description", description);
     formData.append("rating", rating);
     formData.append("price", price);
-    // const { data } = await axios.post("/api/products/new", formData);
     if (dispatch(createProduct(formData))) {
       history.push("/products");
     }
@@ -38,7 +37,7 @@ export default function AddProductPage() {
       style={{ width: "700px", margin: "0 auto" }}
     >
       <Container>
-        <h1>Add A New Book</h1>
+        <h1>Add New Product</h1>
         <Form onSubmit={handleSubmit} className="input-form">
           <Form.Control
             className="my-3"
@@ -70,7 +69,7 @@ export default function AddProductPage() {
             className="my-3"
             size="lg"
             type="text"
-            placeholder="Enter  Product Name"
+            placeholder=" Category Name"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />

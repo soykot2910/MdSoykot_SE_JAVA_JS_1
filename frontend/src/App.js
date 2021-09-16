@@ -4,6 +4,7 @@ import Header from "./Components/HeaderComp/Header";
 import About from "./pages/About";
 import AddProductPage from "./pages/AddProduct";
 import Dashboard from "./pages/Dashboard";
+import ProductEdit from "./pages/EditProduct";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Productlist from "./pages/ProductList";
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/products" component={Productlist} />
         <Route exact path="/product/new" component={AddProductPage} />
+        <Route exact path="/product/:id/edit" component={ProductEdit} />
       </Switch>
     </Router>
   );
