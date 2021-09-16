@@ -5,6 +5,8 @@
   width: 270px;
   height: 100vh;
   position: fixed;
+  z-index: 100;
+  margin-top: 10px;
 }
 
 .anchorTag {
