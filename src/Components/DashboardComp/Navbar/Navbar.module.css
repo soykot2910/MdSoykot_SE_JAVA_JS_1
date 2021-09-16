@@ -1,0 +1,42 @@
+.header {
+  padding: 10px 13px;
+  background: #fff;
+  height: 90px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.dropDownItem {
+  color: black !important;
+}
+.icon {
+  font-size: 2rem;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+.search {
+  width: 400px !important;
+  margin: 0 auto;
+}
+
+.sideBar {
+  display: none;
+}
+.dropDown {
+  width: 160px;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .sideBar {
+    display: block;
+  }
+  .iconEnvelop {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .search {
+    display: none;
+  }
+}

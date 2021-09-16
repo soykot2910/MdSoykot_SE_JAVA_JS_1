@@ -1,0 +1,87 @@
+body::before {
+  display: block;
+  content: "";
+  height: 80px;
+}
+
+/* Start Header */
+.navbar {
+  height: 80px;
+}
+.menu {
+  width: 100% !important;
+  margin-top: -80px;
+  z-index: 10;
+}
+
+/* End Header */
+
+/* Start Hashboard */
+.dashboard {
+  margin-left: 10rem;
+}
+.table {
+  overflow: hidden;
+}
+.paginationBtns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.paginationBtns a {
+  text-decoration: none !important;
+  padding: 8px 12px !important;
+  border-radius: 5px;
+  border: 1px solid #212529 !important;
+  color: #212529 !important;
+  cursor: pointer;
+}
+.paginationBtns a:hover {
+  background: #212529;
+  color: white !important;
+}
+/* End Dashboard */
+
+/* Start Login */
+
+.login-wrapper {
+  background-color: #e4e3e4;
+  height: 100vh;
+}
+
+.login-form {
+  width: 500px;
+  background: #fff;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btn-submit {
+  letter-spacing: 0.1rem;
+  background: linear-gradient(to right, #801ace, #ec2cc3);
+  color: whitesmoke;
+}
+
+.btn-submit:hover {
+  background: #801ace;
+  color: white;
+}
+
+/* End login */
+
+/* Start media query */
+
+@media (max-width: 768px) {
+  .dashboard {
+    margin-left: 0 !important;
+  }
+  .navbar {
+    height: auto;
+  }
+}
+
+/* End media query */
