@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TextTruncate from "react-text-truncate";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,7 +9,6 @@ import Message from "../Components/Message/Message";
 import Loader from "../Components/Loader/Loader";
 
 const Productlist = ({ history }) => {
-  // const [products, setProducts] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
 
   const dispatch = useDispatch();
@@ -30,14 +28,7 @@ const Productlist = ({ history }) => {
     .map((product) => (
       <tr key={product._id}>
         <td>{product._id}</td>
-        <td>
-          <TextTruncate
-            line={1}
-            element="span"
-            truncateText=".."
-            text={product.name}
-          />
-        </td>
+        <td>{product.name}</td>
         <td>{product.price}</td>
         <td>{product.category}</td>
         <td>

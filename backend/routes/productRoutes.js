@@ -11,7 +11,7 @@ import {
 import upload from "../middleware/fileUploadMiddleware.js";
 
 router.post("/new", upload.single("image"), createProduct);
-router.get("/", getProducts);
+router.get("/", getProducts).get("/top", getTopProducts);
 router
   .route("/:id")
   .get(getProductById)

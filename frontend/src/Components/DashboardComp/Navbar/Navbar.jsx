@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import classes from "./Navbar.module.css";
+import React from "react";
+import classes from "./navbar.module.css";
 import {
   Form,
   FormControl,
@@ -7,15 +7,8 @@ import {
   InputGroup,
   Dropdown,
 } from "react-bootstrap";
-
-import {
-  Cart,
-  PersonCircle,
-  Bell,
-  List,
-  Envelope,
-  Inbox,
-} from "react-bootstrap-icons";
+import { Cart, PersonCircle, Bell, List } from "react-bootstrap-icons";
+import Logo from "../../../assets/image/logo.png";
 
 export default function DashboardNav({ handleMenu }) {
   const logoutHandler = () => {
@@ -23,7 +16,10 @@ export default function DashboardNav({ handleMenu }) {
   };
 
   return (
-    <div className={`shadow ${classes.header}`}>
+    <div className={`shadow fixed-top ${classes.header}`}>
+      <a href="/">
+        <img src={Logo} alt="logo" className={classes.logo} />
+      </a>
       <List
         className={`${classes.sideBar} ${classes.icon}`}
         onClick={handleMenu}

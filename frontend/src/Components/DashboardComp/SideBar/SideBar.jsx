@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./SideBar.module.css";
+import classes from "./sideBar.module.css";
 import { Columns } from "react-bootstrap-icons";
 
 import Accordion from "../Accordion/Accordion";
@@ -11,7 +11,7 @@ const SideBar = () => {
     <div className={classes.sideBar}>
       <div className="my-3">
         <a
-          href="/admin/dashboard"
+          href="#"
           className={`${classes.anchorTag} w-100 btn btn-outline-secondary my-1`}
         >
           <Columns className="me-3" />

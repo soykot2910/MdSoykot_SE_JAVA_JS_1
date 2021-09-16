@@ -30,6 +30,7 @@ body::before {
   display: flex;
   justify-content: center;
   margin-top: 1.2rem;
+  margin-left: -4rem;
 }
 .paginationBtns a {
   text-decoration: none !important;
@@ -81,6 +82,9 @@ body::before {
   }
   .navbar {
     height: auto;
+  }
+  .paginationBtns {
+    margin-left: 0 !important;
   }
 }
 

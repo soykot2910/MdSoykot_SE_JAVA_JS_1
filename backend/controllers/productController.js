@@ -42,8 +42,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @route   POST /api/products
 // @access  Private/Admin
 const createProduct = async (req, res) => {
-  console.log(req.body);
-  const { name, category, description, price } = req.body;
+  const { name, category, description, price, rating } = req.body;
 
   const reqFile = "uploads/" + req.file.filename;
 
@@ -53,6 +52,7 @@ const createProduct = async (req, res) => {
     description,
     image: reqFile,
     price,
+    rating,
   });
   if (product) {
     res.status(201).json({ msg: "Product creadted successfully" });
@@ -76,6 +76,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.description = description;
     product.image = product.image;
     product.category = category;
+    product.rating = rating;
 
     const updatedProduct = await product.save();
     res.json(updatedProduct);
@@ -89,7 +90,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 // @route   GET /api/products/top
 // @access  Public
 const getTopProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+  const products = await Product.find({}).sort({ rating: -1 }).limit(5);
 
   res.json(products);
 });

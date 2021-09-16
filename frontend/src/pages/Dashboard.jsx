@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Sidebar from "../Components/DashboardComp/SideBar/SideBar";
 import Navbar from "../Components/DashboardComp/Navbar/Navbar";
+import FeaturedInfo from "../Components/FeaturedInfo/FeaturedInfo";
+import Chart from "../Components/Chart/Chart";
+
+import { userData } from "../assets/data/dummyData";
 
 const Dashboard = () => {
   const [mbl, setMbl] = useState(false);
@@ -27,8 +31,14 @@ const Dashboard = () => {
       <div className="menu">
         <Navbar handleMenu={handleMblMenu} />
         <Container>
-          <div className="dashboard">
-            <h3>helo</h3>
+          <div className="dashboard" style={{ marginTop: "7rem" }}>
+            <FeaturedInfo />
+            <Chart
+              data={userData}
+              title="User Analytics"
+              grid
+              dataKey="Active User"
+            />
           </div>
         </Container>
       </div>

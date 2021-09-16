@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Footer } from "./Components/FooterComp/Footer";
 import Header from "./Components/HeaderComp/Header";
 import About from "./pages/About";
 import AddProductPage from "./pages/AddProduct";
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path="/product/new" component={AddProductPage} />
         <Route exact path="/product/:id/edit" component={ProductEdit} />
       </Switch>
+      <Footer />
     </Router>
   );
 };

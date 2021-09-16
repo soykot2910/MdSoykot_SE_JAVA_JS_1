@@ -5,6 +5,7 @@
   padding-top: 25px;
   display: flex;
   justify-content: space-between;
+  z-index: 100;
 }
 .dropDownItem {
   color: black !important;
@@ -27,11 +28,18 @@
   margin-right: 20px;
 }
 
+.logo {
+  margin-top: -30px;
+}
+
 @media (max-width: 768px) {
   .sideBar {
     display: block;
   }
   .iconEnvelop {
+    display: none;
+  }
+  .logo {
     display: none;
   }
 }

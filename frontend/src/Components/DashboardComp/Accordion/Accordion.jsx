@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Accordion.module.css";
+import classes from "./accordion.module.css";
 import { ChevronRight } from "react-bootstrap-icons";
 
 const Accordion = ({ item }) => {

@@ -3,7 +3,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message/Message";
 import Loader from "../Components/Loader/Loader";
-import { listProductDetails, updateProduct } from "../actions/productActions";
+import { ProductDetailsById, updateProduct } from "../actions/productActions";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
 export default function ProductEdit({ match, history }) {
@@ -34,7 +34,7 @@ export default function ProductEdit({ match, history }) {
       history.push("/products");
     } else {
       if (!product.name || product._id !== productId) {
-        dispatch(listProductDetails(productId));
+        dispatch(ProductDetailsById(productId));
       } else {
         setName(product.name);
         setImage(product.image);
