@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { createProduct } from "../actions/productActions";
+import axios from "axios";
 
 export default function AddProductPage() {
   let history = useHistory();
 
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [rating, setRating] = useState();
-  const [numReviews, setNumReviews] = useState();
   const [price, setPrice] = useState();
-  const [countInStock, setCountInStock] = useState();
+  const [image, setImage] = useState("");
+  const [rating, setRating] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     var formData = new FormData();
     formData.append("name", name);
+    formData.append("image", image);
     formData.append("category", category);
     formData.append("description", description);
     formData.append("rating", rating);
-    formData.append("numReviews", numReviews);
     formData.append("price", price);
-    formData.append("countInStock", countInStock);
+    // const { data } = await axios.post("/api/products/new", formData);
+    if (dispatch(createProduct(formData))) {
+      history.push("/products");
+    }
   };
 
   return (
@@ -37,7 +44,7 @@ export default function AddProductPage() {
             className="my-3"
             size="lg"
             type="text"
-            placeholder="Enter Book Name"
+            placeholder="Enter  Product Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -49,14 +56,7 @@ export default function AddProductPage() {
             value={rating}
             onChange={(e) => setRating(e.target.value)}
           />
-          <Form.Control
-            className="my-3"
-            size="lg"
-            type="number"
-            placeholder="Enter Review Number"
-            value={numReviews}
-            onChange={(e) => setNumReviews(e.target.value)}
-          />
+
           <Form.Control
             className="my-3"
             size="lg"
@@ -65,18 +65,26 @@ export default function AddProductPage() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
+
           <Form.Control
             className="my-3"
             size="lg"
-            type="number"
-            placeholder="Enter Total Stock"
-            value={countInStock}
-            onChange={(e) => setCountInStock(e.target.value)}
+            type="text"
+            placeholder="Enter  Product Name"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
           />
+          <div className="mb-3 form-control">
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+          </div>
           <Form.Group className="mb-3">
             <Form.Control
               as="textarea"
-              placeholder="Enter Book Summery"
+              placeholder="Enter description"
               value={description}
               name="description"
               rows={3}

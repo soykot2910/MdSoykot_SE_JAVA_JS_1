@@ -41,24 +41,26 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @desc    Create a product
 // @route   POST /api/products
 // @access  Private/Admin
-const createProduct = asyncHandler(async (req, res) => {
-  const { name, category, description, rating, price } = req.body;
-
-  const url = req.protocol + "://" + req.get("host");
+const createProduct = async (req, res) => {
+  console.log(req.body);
+  const { name, category, description, price } = req.body;
 
   const reqFile = "uploads/" + req.file.filename;
 
-  const product = new Product({
-    name: name,
-    price: price,
+  const product = await Product.create({
+    name,
+    category,
+    description,
     image: reqFile,
-    category: category,
-    description: description,
+    price,
   });
-
-  const createdProduct = await product.save();
-  res.status(201).json(createdProduct);
-});
+  if (product) {
+    res.status(201).json({ msg: "Product creadted successfully" });
+  } else {
+    res.status(400);
+    throw new Error("Invalid ProductID data");
+  }
+};
 
 // @desc    Update a product
 // @route   PUT /api/products/:id
